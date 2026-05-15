@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <style>
+    * {
+      font-family:
+        "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+    .main {
+      background-image: url(loh1.png);
+      min-height: 100vh;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position-x: right;
+    }
+    .im {
+      filter: invert(19%) sepia(97%) saturate(7592%) hue-rotate(4000deg)
+        brightness(95%) contrast(150%);
+    }
+    .main3 {
+      background-color: rgb(8, 8, 8);
+      min-height: 60vh;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      background: #8c0a0a;
+      color: #fff;
+      padding: 15px 0;
+
+      font-weight: bold;
+    }
+    .marquee-content {
+      display: inline-block;
+
+      animation: move 22s linear infinite;
+    }
+    @keyframes move {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+   
+  </style>
+  <body>
+    <div class="marquee-container">
+      <div class="marquee-content">
+        <span>AWESOME PRODUCTS ........ </span>
+        <span>FAST DELIVERY ....... </span>
+        <span>BEST QUALITY ....... </span>
+
+        <span>AWESOME PRODUCTS ....... </span>
+        <span>FAST DELIVERY ...... </span>
+        <span>BEST QUALITY ...... </span>
+
+        <span>AWESOME PRODUCTS ....... </span>
+        <span>FAST DELIVERY ...... </span>
+        <span>BEST QUALITY ...... </span>
+
+        <span>AWESOME PRODUCTS ....... </span>
+        <span>FAST DELIVERY ...... </span>
+        <span>BEST QUALITY ...... </span>
+
+        <span>AWESOME PRODUCTS ....... </span>
+        <span>FAST DELIVERY ...... </span>
+        <span>BEST QUALITY ...... </span>
+
+        <span>AWESOME PRODUCTS ....... </span>
+        <span>FAST DELIVERY ...... </span>
+        <span>BEST QUALITY ...... </span>
+
+        <span>AWESOME PRODUCTS ....... </span>
+        <span>FAST DELIVERY ...... </span>
+        <span>BEST QUALITY ...... </span>
+
+        <span>AWESOME PRODUCTS ....... </span>
+        <span>FAST DELIVERY ...... </span>
+        <span>BEST QUALITY ...... </span>
+
+        <span>AWESOME PRODUCTS ....... </span>
+        <span>FAST DELIVERY ...... </span>
+        <span>BEST QUALITY ...... </span>
+
+        <span>AWESOME PRODUCTS ....... </span>
+        <span>FAST DELIVERY ...... </span>
+        <span>BEST QUALITY ...... </span>
+      </div>
+    </div>
+    <section class="bg-white sticky top-0 z-20 border-b-2 border-red-600">
+      <div
+        class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 items-center place-items-center py-4"
+      >
+        <div class="flex gap-2 items-center">
+          <img src="sport-shoe.png" class="im" alt="" />
+          <p class="font-bold text-red-700 2xl:text-3xl">HEELS</p>
+        </div>
+        <!--logo -->
+
+        <div class="links flex gap-3 mt-2 md:mt-0 2xl:text-3xl lg:flex hidden">
+          <a href="design.html" class="text-red-700 hover:underline">Home</a>
+          <a href="#bott" class="text-red-700 hover:underline">Products</a>
+          <a href="#" class="text-red-700 hover:underline">About</a>
+          <a href="#" class="text-red-700 hover:underline">Contact</a>
+        </div>
+        <div class="flex gap-2 items-center md:mt-3 lg:mt-0">
+          <div>
+            <a href="more.html">
+              <img src="search.png" class="im h-5 2xl:h-10 hover:border-b-1 " alt="" />
+            </a>
+          </div>
+          <div class="relative">
+            <a href="order.html">
+              <img src="shopping-cart.png" class="im h-5 2xl:h-10 hover:border-b-1" alt=""
+            /></a>
+            <div
+              class="absolute bottom-[12px] left-[10px] 2xl:left-[20px] 2xl:bottom-[25px] bg-red-700 text-white w-4 h-4 2xl:h-6 2xl:w-8 2xl:py-1 2xl:text-5xl rounded-full text-center flex justify-center"
+            >
+              <span id="count" class="text-xs"></span>
+            </div>
+          </div>
+          <a href="fifth.html">
+            <img src="user.png" class="im h-5 2xl:h-10 hover:border-b-1" alt=""
+          /></a>
+          <div>
+            <button
+              onclick="toggle()"
+              class="lg:hidden text-3xl font-bold text-red-700 hover:bg-red-700"
+            >
+              ⫶
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- grid -->
+      <div
+        id="menu"
+        class="bg-white/3 backdrop-blur-md lg:hidden fixed top-0 right-0 w-0 h-[540px] shadow-red-300 shadow-xl rounded-lg overflow-hidden transition-all duration-300"
+      >
+        <div class="flex flex-col p-4">
+          <button onclick="toggle()" class="text-md text-right">❌</button>
+
+          <a href="design.html" class="text-red-700 focus:underline mt-12"
+            >Home</a
+          >
+          <a href="#bott" class="text-red-700 active:underline mt-2">Products</a>
+          <a href="#" class="text-red-700 active:underline mt-2">About</a>
+          <a href="#" class="text-red-700 active:underline mt-2">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="main lg:py-45 md:py-40 lg:px-32 py-10 px-5 2xl:py-80 2xl:px-40"
+    >
+      <div>
+        <p class="colo md:text-3xl text-md text-red-700 2xl:text-5xl">
+          Obsession with heels
+        </p>
+        <p class="mt-3 text-sm 2xl:text-3xl">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
+          dolorem?
+        </p>
+        <p class="text-sm 2xl:text-3xl">Lorem ipsum dolor sit amet.</p>
+        <div tabindex="0">
+        <a href="#new"  class="transition-all ">
+          <button
+            class="transition-all border-2  border-red-700 rounded-lg p-2 lg:bg-white lg:text-red-700 lg:hover:bg-red-700 bg-red-700 text-white shadow-md lg:shadow-none shadow-red-300   lg:hover:text-white w-20 text-sm md:text-md md:w-30 mt-3 2xl:mt-6 active:translate-y-2 duration-100"
+          >
+            Buy Now
+          </button>
+        </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="new">
+      <p class="md:text-3xl text-md text-red-700 2xl:text-5xl text-center">
+        ------
+      </p>
+      <p class="md:text-3xl text-md text-red-700 2xl:text-5xl text-center">
+        Shop By Categories 
+      </p>
+
+      <div
+        class="flex flex-col lg:flex-row gap-6 justify-center items-center mt-10 md:py-5 lg:py-0"
+      >
+        <div class="flex lg:block gap-3">
+          <div tabindex="0" class="relative group overflow-hidden">
+            <img
+              src="download.jpg"
+              class="md:h-[200px] h-[150px] hover:scale-105 group-focus-within:scale-105 transition-transform duration-300"
+              alt=""
+            />
+            <div class="absolute md::left-[30px] left-[20px] bottom-[30px]">
+              <p
+                class="text-lg font-bold text-white hover:bg-red-700 text-shadow-lg cursor-pointer"
+              >
+                Causal Heels
+              </p>
+              <a
+                href="more.html"
+                class="inline-block font-bold text-white backdrop-blur-md rounded-lg bg-white/3 p-2 translate-y-20 opacity-0 lg:group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500 lg:group-hover:translate-y-0 group-focus-within:translate-y-0 focus:opacity-100 focus:translate-y-0 transition-transform duration-700"
+                >BUY NOW</a
+              >
+            </div>
+            <!-- opacity used for hidden translate for moving backdrop for blurring -->
+          </div>
+          <div tabindex="0" class="relative group overflow-hidden">
+            <!--tabindex is used to remember the click-->
+            <img
+              src="images (3).jpg"
+              class="lg:mt-4 md:h-[200px] h-[150px] md:w-[200px] hover:scale-105 group-focus-within:scale-105 transition-transform duration-300"
+              alt=""
+            />
+            <div class="absolute md:left-[55px] left-[30px] bottom-[20px]">
+              <p
+                class="text-lg font-bold text-white hover:bg-red-700 text-shadow-lg cursor-pointer"
+              >
+                Gold Style
+              </p>
+              <a
+                href="more.html"
+                class="inline-block opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500 font-bold text-white backdrop-blur-md rounded-lg bg-white/3 py-2 px-3 inline-block translate-y-10 lg:group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0 transition-transform duration-700"
+                >BUY NOW</a
+              >
+            </div>
+          </div>
+        </div>
+        <div tabindex="0" class="relative group overflow-hidden">
+          <img
+            src="bghel14.png"
+            class="lg:h-[500px] h-[400px] w-[300px] lg:w-[500px] mt-3 lg:mt-0 hover:scale-105 group-focus-within:scale-105 transition-transform duration-300"
+            alt=""
+          />
+          <div class="absolute left-[80px] bottom-[80px] text-white">
+            <p class="text-2xl font-bold outline p-1 text-shadow-lg cursor-pointer">
+              classic heels
+            </p>
+          </div>
+          <div class="absolute lg:bottom-[40px] bottom-[30px] left-[75px]">
+            <a
+              href="more.html"
+              class="inline-block opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500 font-bold text-white backdrop-blur-md border rounded-lg border-white/3 py-2 px-3 mt-3 translate-y-10 lg:group-hover:translate-y-2 transition-transform duration-700 group-focus-within:opacity-100 group-focus-within:translate-y-0"
+              >BUY NOW</a
+            >
+          </div>
+        </div>
+
+        <div class="flex lg:block gap-3 mt-4 lg:mt-0">
+          <div tabindex="0" class="relative group overflow-hidden">
+            <img
+              src="images.jpg"
+              class="md:h-[200px] h-[150px] md:w-[200px] hover:scale-105 group-focus-within:scale-105 transition-transform duration-300"
+              alt=""
+            />
+            <div
+              class="absolute lg:left-[40px] left-[30px] text-shadow-lg bottom-[30px]"
+            >
+              <p
+                class="text-lg font-bold text-shadow-lg drop-shadow-md text-white hover:bg-red-700 cursor-pointer"
+              >
+                Brown Style
+              </p>
+              <a
+                href="more.html"
+                class="inline-block opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500 font-bold text-white backdrop-blur-md border rounded-lg border-white/3 py-2 px-3 translate-y-20 lg:group-hover:translate-y-0 transition-transform duration-800 group-focus-within:opacity-100 group-focus-within:translate-y-0"
+                >BUY NOW</a
+              >
+            </div>
+          </div>
+
+          <div tabindex="0" class="relative group">
+            <img
+              src="hel1.png"
+              class="md:h-[200px] h-[150px] md:w-[200px] lg:mt-4 hover:scale-105 group-focus-within:scale-105 transition-all duration-300"
+              alt=""
+            />
+            <div
+              class="absolute md:left-[40px] left-[20px] md:bottom-[60px] bottom-[40px]"
+            >
+              <p
+                class="text-lg font-bold text-white hover:bg-red-700 text-shadow-lg cursor-pointer"
+              >
+                Shine Style
+              </p>
+              <a
+                href="more.html"
+                class="inline-block opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500 font-bold text-white backdrop-blur-md border rounded-lg border-white/3 py-2 px-3 translate-y-10 lg:group-hover:translate-y-0 transition-transform duration-700 group-focus-within:opacity-100 group-focus-within:translate-y-0"
+                >BUY NOW</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--grid-->
+    </section>
+
+    <section class="main2 mt-16" id="bott">
+      <p class="md:text-3xl text-md text-red-700 2xl:text-5xl text-center">
+        ------
+      </p>
+      <p class="text-3xl text-red-700 text-center">Trending Products</p>
+      <div
+        class="cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 place-items-center gap-8 md:p-0"
+      >
+        <div
+          class="bg-white h-[375px] 2xl:h-[400px] w-[300px] shadow-md shadow-red-300 rounded-lg overflow-hidden"
+        >
+          <div tabindex="0" class="relative group">
+            <img
+              src="hel2.png"
+              class="object-bottom object-cover h-[250px]  w-full rounded-lg hover:scale-[1.1] group-focus-within:scale-105 transition-all"
+              alt=""
+            />
+            <div
+              class="absolute top-[10px] right-[10px] bg-red-700 text-white p-2 rounded-xl"
+            >
+              20% off
+            </div>
+          </div>
+          <div class="py-3 px-3">
+            <p>⭐⭐</p>
+            <p class="text-lg text-red-700 font-bold">Golden event Heel</p>
+            <p class="text-gray-500">6000 Rs</p>
+
+            <a href="order.html">
+              <img
+                src="shopping-cart.png"
+                class="im h-5 2xl:h-10 ms-[210px] mb-2"
+                alt=""
+                onclick="cart()"
+              />
+            </a>
+          </div>
+        </div>
+        <!--box-->
+
+        <div tabindex="0"
+          class="shadow-md shadow-red-300 rounded-lg h-[375px] 2xl:h-[400px] w-[300px] overflow-hidden group"
+        >
+          <div>
+            <img
+              src="hel3.png"
+              onmouseout="this.src = 'hel3.png'"
+              onmouseover="this.src = 'hell3.jpeg'"
+              class="h-[250px] w-full rounded-lg hover:scale-[1.1] group-focus-within:scale-105  transition-all ease-in-out"
+              alt=""
+            />
+          </div>
+          <div class="py-3 px-3">
+            <p>⭐⭐⭐</p>
+            <p class="text-lg text-red-700 font-bold">Black event heel</p>
+            <p class="text-gray-500">9000 Rs</p>
+            <a href="order.html">
+              <img
+                src="shopping-cart.png"
+                class="im h-5 2xl:h-10 ms-[210px] mb-2"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+
+        <div tabindex="0"
+       
+          class="shadow-md shadow-red-300 rounded-lg h-[375px] 2xl:h-[400px] w-[300px] overflow-hidden group"
+        >
+          <div>
+            <img
+              src="hel5.png"
+              class="h-[250px] w-full rounded-lg hover:scale-[1.1] group-focus-within:scale-105   transition-all"
+              alt=""
+            />
+          </div>
+          <div class="py-3 px-3">
+            <p>⭐⭐⭐</p>
+            <p class="text-lg text-red-700 font-bold">white formal heel</p>
+            <p class="text-gray-500">12000 Rs</p>
+            <a href="order.html">
+              <img
+                src="shopping-cart.png"
+                class="im h-5 2xl:h-10 ms-[210px] mb-2"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <!--grid-->
+      <div class="justify-center flex">
+        <a
+          href="more.html"
+          class="lg:text-red-700 rounded-lg border-2 border-red-700 text-center p-2 w-30 lg:hover:bg-red-700 lg:hover:text-white lg:bg-white mt-10 mb-6 active:translate-y-2 transition-all bg-red-700 text-white shadow-md shadow-red-400 lg:shadow-none"
+          >See More</a
+        >
+      </div>
+    </section>
+
+    <section class="main3">
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 md:place-items-center px-3 lg:px-0"
+      >
+        <div>
+          <p class="text-white font-bold text-2xl mt-10">
+            ARE YOU INTERESTED ?
+          </p>
+          <div class="mt-10">
+            <a href="more.html" class="text-red-700 hover:underline">BUY NOW →</a>
+          </div>
+        </div>
+
+        <div class="mt-16 px-2">
+          <div class="flex items-center gap-1">
+            <img src="sport-shoe.png" class="im" alt="" />
+            <p class="font-bold text-red-700 2xl:text-3xl">HEELS</p>
+          </div>
+          <div class="mt-3 ">
+            <a href="design.html" class="text-gray-500 hover:underline">Home</a>
+          </div>
+          <div class="mt-3 ">
+            <a href="#" class="text-gray-500 hover:underline">Products</a>
+          </div>
+          <div class="mt-3">
+            <a href="#" class="text-gray-500 hover:underline">About</a>
+          </div>
+          <div class="mt-3 ">
+            <a href="#" class="text-gray-500 hover:underline">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="lg:flex gap-2 items-center ">
+           <div> <input type="email" placeholder="enter your email" class="outline-none mt-3 lg:mt-0 bg-gray-500 p-1 md:p-2 rounded-lg"></div>
+          <div>  <button class="bg-red-700 text-white p-1 md:p-2 lg:w-25 w-25 mt-2 lg:mt-0 rounded-lg shadow-md shadow-red-300 active:scale-[1.1] transition-all cursor-pointer">Subscribe</button></div>
+          </div>
+           <div class="flex gap-3 mt-3">
+           <img src="facebook.png" class="im hover:border-b-1 cursor-pointer"  alt="">
+           <img src="twitter.png"  class="im hover:border-b-1 cursor-pointer"  alt="">
+           <img src="github.png" class="im hover:border-b-1 cursor-pointer"   alt="">
+          
+          
+        </div>
+        </div>
+       
+      </div>
+
+      <div class="border-b-2 border-gray-500 mt-5"></div>
+      <div>
+        <p class="text-gray-500 text-center mt-2 p-3">
+          Copyright Fancy Heels 2026, All Rights Reserved
+        </p>
+      </div>
+    </section>
+
+    <script>
+      function toggle() {
+        let menu = document.getElementById("menu");
+        if (menu.style.width === "150px") {
+          menu.style.width = "0";
+        } else {
+          menu.style.width = "150px";
+        }
+      }
+
+      let get = Number(localStorage.getItem("cart")) || 0;
+      document.getElementById("count").innerText = "" + get;
+      function cart() {
+        // write function here bsc is used to run incread numbers
+        get++;
+        localStorage.setItem("cart", get); // cart is place where the num save and count that num
+        document.getElementById("count").innerText = "" + get;
+      }
+    </script>
+  </body>
+</html>
