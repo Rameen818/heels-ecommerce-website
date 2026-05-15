@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <style>
+    * {
+      font-family:
+        "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: rgb(234, 220, 220);
+    }
+    .box {
+      border-radius: 30%;
+    }
+    /* .flex {
+      accent-color: rgb(176, 13, 13);
+    } */
+    #pass {
+      font-family: none;
+    }
+    #pas {
+      font-family: none;
+    }
+  </style>
+  <body>
+    <section
+      class="bg-white shadow-lg shadow-red-300 h-[700px] w-[300px] md:h-[440px] md:w-[600px] rounded-3xl m-auto md:mt-20 mt-5 relative overflow-hidden mb-10 px-10"
+    >
+      <div
+        class="box h-[250px] md:h-[440px] w-[500px] bg-red-800 absolute right-[-200px]"
+      >
+        <p class="font-bold text-white text-3xl mt-15 md:mt-35 ms-13">
+          Hello, Friend!
+        </p>
+        <p class="text-white text-sm ms-6 mt-2">
+          If you have a account then click here!
+        </p>
+        <button
+          class="text-white transition duration-300 font-bold outline-2 outline-white text-sm p-2 w-20 mt-10 ms-25 rounded-lg hover:scale-[1.2]"
+        >
+          SIGN IN
+        </button>
+      </div>
+
+      <div class="main mt-70 md:mt-6">
+        <p class="text-xl text-red-700">Create Account</p>
+
+        <form action="" onsubmit="act(event)">
+          <div>
+            <input
+              type="name"
+              id="name"
+              required
+              class="rounded-lg outline-none p-1 bg-red-100 mt-4"
+              placeholder="enter username"
+            />
+          </div>
+          <div>
+            <input
+              type="email"
+              id="email"
+              required
+              class="rounded-lg outline-none p-1 bg-red-100 mt-3"
+              placeholder="enter email"
+            />
+          </div>
+          <p class="text-red-700 mt-3">Password</p>
+          <div class="error relative flex">
+            <input
+              type="password"
+              id="pas"
+              required
+              class="rounded-lg outline-none p-1 bg-red-100 w-[220px]"
+            />
+
+            <div class="flex absolute left-[190px] top-[8px]">
+              <img
+                src="eye-off.png"
+                id="eof"
+                onclick="show()"
+                class="h-4"
+                alt=""
+              />
+              <img
+                src="eye.png"
+                id="eop"
+                oninput="validatePassword()"
+                onclick="show()"
+                style="display: none"
+                class="h-4"
+                alt=""
+              /> <!--use oninput function to show text during input-->
+            </div>
+          </div>
+          <div id="errorMsg" class="text-sm"></div>
+          <!-- for placing new element so need to create a div -->
+          <!--pass1-->
+          <p class="text-red-700 mt-3">Comfirm Password</p>
+
+          <div class="relative">
+            <input
+              type="password"
+              id="pass"
+              oninput="validation()"
+              required
+              class="rounded-lg outline-none p-1 bg-red-100 w-[220px]"
+            />
+            <div class="flex absolute left-[190px] top-[8px]">
+              <img
+                src="eye-off.png"
+                id="eyeClose"
+                onclick="visi()"
+                class="h-4"
+                alt=""
+              />
+              <img
+                src="eye.png"
+                id="eyeOpen"
+                onclick="visi()"
+                style="display: none"
+                class="h-4"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <!--pass2-->
+          <div class="flex gap-2 items-center mt-5">
+            <div
+              class="text-red-700 font-bold text-2xl rounded-full w-10 text-center py-1 justify-center border-2 border-red-700 hover:bg-red-700 hover:text-white"
+            >
+              <a href="design.html">←</a>
+            </div>
+
+            <button
+              type="submit"
+              class="hover:text-red-700 hover:bg-white hover:outline-none border-red-700 border-2 outline-2 hover:outline-red-700 bg-red-700 text-white rounded-lg p-2 w-20 transition-all"
+            >
+              Sign Up
+            </button>
+          </div>
+          <!--but-->
+        </form>
+      </div>
+    </section>
+
+    <script>
+      function show() {
+        let password = document.getElementById("pas");
+        let close = document.getElementById("eof");
+        let open = document.getElementById("eop");
+        if (password.type === "password") {
+          password.type = "text";
+          close.style.display = "none";
+          open.style.display = "inline";
+        } else {
+          password.type = "password";
+          close.style.display = "inline";
+          open.style.display = "none";
+        }
+      }
+      function visi() {
+        let password = document.getElementById("pass");
+        let off = document.getElementById("eyeClose");
+        let on = document.getElementById("eyeOpen");
+        if (password.type === "password") {
+          password.type = "text";
+          off.style.display = "none";
+          on.style.display = "inline";
+        } else {
+          password.type = "password";
+          off.style.display = "inline";
+          on.style.display = "none";
+        }
+      }
+
+      function validation() {
+        // it works at the time of input
+        let password = document.getElementById("pas").value;
+        let confirm = document.getElementById("pass").value;
+        let msg = document.getElementById("errorMsg");
+        msg.innerHTML = ""; // used to removed the existing text for updated text
+        if (password !== confirm) {
+          let p = document.createElement("p");
+          p.textContent = "don't match";
+          p.style.color = "red";
+          msg.appendChild(p);
+        } else {
+          let p = document.createElement("p");
+          p.textContent = "corect password";
+          p.style.color = "blue";
+          msg.appendChild(p);
+        }
+      }
+
+      function act(e) {
+        e.preventDefault(); // it used to prevent from refresh
+        let user = document.getElementById("name").value;
+        let emil = document.getElementById("email").value;
+        let password = document.getElementById("pas").value;
+        let confirm = document.getElementById("pass").value;
+
+        alert("successfully created!");
+      }
+    </script>
+  </body>
+</html>

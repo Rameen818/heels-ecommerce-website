@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <style>
+    * {
+      font-family:
+        "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: rgb(234, 220, 220);
+    }
+    .im {
+      filter: invert(19%) sepia(97%) saturate(7592%) hue-rotate(4000deg)
+        brightness(95%) contrast(150%);
+    }
+    @media(min-width:1024px){
+.im:hover {
+      filter: brightness(0) invert(1);
+    }
+    }
+  
+  </style>
+  <body>
+    <section class="bg">
+      <div id="main">
+      <div
+        class="md:flex gap-20 bg-white shadow-red-300 shadow-xl  w-[300px] md:w-[650px] h-[600px] mb-10 md:mb-0 md:h-[250px] rounded-lg m-auto md:mt-40 mt-5 overflow-hidden p-5"
+      >
+        <div>
+          <img
+            src="hel2.png"
+            class="h-[150px] rounded-lg object-cover object-center hover:scale-[1.1] transition-all"
+            alt=""
+          />
+          <p class="text-red-700 mt-3">Golden event heel</p>
+          <p class="text-gray-500">Price: 6000 Rs</p>
+        </div>
+        <div class="">
+          <p class="text-gray-500">Save20</p>
+          <div class="flex gap-3 mt-4 items-center">
+            <p class="text-red-700">Size:</p>
+            <div class="flex gap-2">
+              <select
+                id="size"
+                class="outline-2 outline-red-700 text-red-700 rounded-lg"
+              >
+                <option value="">sm</option>
+                <option value="">md</option>
+                <option value="">lg</option>
+              </select>
+            </div>
+            <div class="flex gap-2 items-center">
+              <p class="text-red-700">Quantity:</p>
+              <input
+                type="number"
+                oninput="show()"
+                id="qty"
+                class="outline-red-700 outline-2 rounded-lg p-1 w-20"
+                value="1"
+              />
+            </div>
+          </div>
+
+          <div class="md:flex gap-2 mt-3 items-center">
+            <p class="text-red-700">Coupon:</p>
+            <input
+              oninput="show()"
+              type="text"
+              id="coupon"
+              class="outline-red-700 outline-2 rounded-lg p-1"
+            />
+            <div id="msg"></div>
+          </div>
+          <div>
+            <p id="total" class="text-red-700 md:mt-3 mt-10 border-b-2 w-40">Total:</p>
+          </div>
+
+          <div class="flex items-center gap-3 md:mt-3 mt-8 md:ms-10 ms-3">
+            <div
+              class="border-2 rounded-full p-1 border-red-700 w-10 text-center text-red-700 hover:text-white hover:bg-red-700"
+            >
+              <a href="design.html" class="text-lg font-bold text-center">←</a>
+            </div>
+            <a href="check.html">
+              <button
+                onclick="check()"
+                class="bg-red-700 border-2 text-white p-1 w-30 rounded-lg hover: border-red-700 hover:text-red-700 hover:bg-white"
+              >
+                Checkout
+              </button>
+            </a>
+
+            <div class="">
+              <button
+                onclick="remove()"
+                class="text-sm border-2 rounded-full p-1 border-red-700 w-10 text-center lg:hover:bg-red-700 lg:hover:border-none p-2"
+              >
+                <img src="trash-2.png" alt="" class="im" />
+              </button>
+            </div>
+          </div>
+          <!--button-->
+        </div>
+        <!--box-->
+      </div>
+      </div> <!--main div for hide-->
+       
+      <div id="empty" style="display: none;" class=" text-center py-30 text-gray-400 font-bold text-2xl">
+        <p>Cart is empty yet!</p>
+
+
+      </div>
+    </section>
+
+    <script>
+      let price = 6000;
+      let final = "";
+      function show() {
+        let size = document.getElementById("size").value;
+        let qty = document.getElementById("qty").value;
+        let coupon = document.getElementById("coupon").value;
+        let msg = document.getElementById("msg");
+        let total = document.getElementById("total");
+        msg.innerText = "";
+        amount = price * qty;
+        if (coupon === "SAVE20") {
+          let discount = amount * 0.2;
+          final = amount - discount;
+          msg.innerText="applied"
+          msg.style.color="blue"
+        } else if (coupon === "") {
+          msg.innerText = "";
+        } else {
+          let p = document.createElement("p");
+          p.innerText = "invalide";
+          p.style.color = "red";
+          msg.appendChild(p);
+        }
+        total.innerText ="Total:" + final; // show the text with its value by using + this to get/show variable value
+      }
+
+      function check() {
+        let hand = document.getElementById("total").innerText;
+        localStorage.setItem("bill", hand);
+        window.location.herf = "check.html"; // this directory is for to save price and show here
+      }
+      
+      let hand=Number(localStorage.getItem("cart")) || 0;
+       if(hand===0){
+                   let main= document.getElementById("main")
+                    main.style.display="none"
+                   let emp=document.getElementById("empty")
+                  emp.style.display="block"
+                   
+                  }
+      function remove(){
+                  if(hand>0){
+                  hand--;
+                localStorage.setItem("cart", hand)
+                document.getElementById("count").innerText="" +hand;
+                  }
+                  if(hand===0){
+                   let main= document.getElementById("main")
+                    main.style.display="none"
+                   let emp=document.getElementById("empty")
+                  emp.style.display="block"
+                   
+                  }
+      }
+
+    </script>
+  </body>
+</html>

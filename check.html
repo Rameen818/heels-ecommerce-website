@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <style>
+    * {
+      font-family:
+        "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+    .rad {
+      accent-color: red;
+    }
+  </style>
+  <body>
+    <section class="">
+      <p class="text-xl mt-5 text-red-700 text-center">HEElS Shoes | New</p>
+      <div class="border-b-2 mt-3 border-red-700"></div>
+      <div class="mt-5 md:justify-center flex flex-cols mb-10 p-6">
+        <div>
+          <div class="flex md:gap-8 gap-3 items-center">
+            <img
+              src="hel2.png"
+              class="md:h-40 h-[150px] w-[160px] md:w-50 rounded-lg"
+              alt=""
+            />
+            <div class="mt-20">
+              <p  class=" text-red-700 md:text-xl">Golden Event Heel</p>
+              <p id="sbill" class=" md:text-xl"></p>
+            </div>
+          </div>
+
+          <form action="" onsubmit="order(event)">
+            <p class="md:text-xl  text-red-700 font-bold mt-6">Contact</p>
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="enter email"
+              class="border border-red-200 md:w-[500px]  mt-3 rounded-lg outline-none md:p-3 p-2 focus:border-red-700 focus:border-2 transition-all duration-300"
+            />
+            <div>
+              <p class="text-xl text-red-700 font-bold mt-5">Delivery</p>
+              <select
+                name=""
+                id=""
+                class="md:w-[500px] w-[240px] mt-3 outline-none p-3 focus:border-red-700 focus:border-2 transition-all duration-300 rounded-lg border border-red-200 text-md"
+              >
+                <option value="">Pakistan</option>
+                <option value="">Bangladesh</option>
+              </select>
+            </div>
+            <div class="md:flex gap-3 items-center">
+              <div> <input
+              type="name"
+              id="name"
+              placeholder="first name"
+              required
+              class="outline-none p-3 focus:border-red-700 focus:border-2 transition-all mt-4 duration-300 rounded-lg border border-red-200 text-md"
+            /></div>
+
+            <input
+              type="name"
+              id="nam"
+              placeholder="Last name"
+              required
+              class="outline-none mt-4 p-3 focus:border-red-700 focus:border-2 transition-all duration-300 rounded-lg border border-red-200 text-md"
+            />
+            </div>
+           
+            <div>
+              <input
+                type="address"
+                placeholder="Address"
+                class="md:w-[500px] mt-4 outline-none p-3 focus:border-red-700 focus:border-2 transition-all duration-300 rounded-lg border border-red-200 text-md"
+              />
+            </div>
+
+            <div class="md:flex gap-3 items-center">
+              <div> <input
+              type="text"
+              id="name"
+              placeholder="City"
+              required
+              class="outline-none p-3 focus:border-red-700 focus:border-2 transition-all mt-4 duration-300 rounded-lg border border-red-200 text-md"
+            /></div>
+
+            <input
+              type="tel"
+              id="tel"
+              placeholder="Phone"
+              required
+              class="outline-none mt-4 p-3 focus:border-red-700 focus:border-2 transition-all duration-300 rounded-lg border border-red-200 text-md"
+            />
+            </div>
+            <p class="text-xl text-red-700 font-bold mt-5">Payment Method</p>
+            <div
+              class="md:w-[500px] outline-none p-3 mt-4 focus:border-red-700 focus:border-2 transition-all duration-300 rounded-lg border border-red-200 text-md"
+            >
+              <div class="flex gap-3">
+                <input type="radio" class="rad" />
+                <p class="text-red-700">By Credit Card</p>
+              </div>
+              <div class="border-b-1 border-red-200 mt-2"></div>
+              <div class="flex gap-3 mt-2">
+                <input type="radio" class="rad" />
+                <p class="text-red-700">Cash On Delivery</p>
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="text-white text-center p-3 bg-red-700 rounded-lg w-[250px] md:w-[500px] hover:border-2 hover:border-red-700 hover:text-red-700 hover:bg-white transition-all duration-300 mt-6"
+            >
+              Order
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      window.onload = function () {
+        let hand = localStorage.getItem("bill");
+        document.getElementById("sbill").innerText ="" + hand;
+      };
+
+      function order(e) {
+        e.preventDefault();
+        let email = document.getElementById("email").value;
+        let name = document.getElementById("name").value;
+        let sname = document.getElementById("nam").value;
+        let phone = document.getElementById("tel").value;
+
+        alert("Successfully placed!");
+      }
+    </script>
+  </body>
+</html>
